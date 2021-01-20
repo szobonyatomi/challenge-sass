@@ -1,0 +1,113 @@
+@import "./colors";
+@import "./variables";
+@import "./bloc";
+
+body {
+  font-family: $font-stack;
+  color: color(primary);
+  margin: 0;
+  padding: 0;
+  background: color(bg2);
+  overflow-x: hidden;
+}
+
+main {
+  $padding: 0 1em;
+  padding: $padding;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  section {
+    flex-grow: 1;
+    flex-basis: 45%;
+    border: $border-style;
+    box-shadow: $shadow-style;
+    padding: $padding;
+    margin: 16px;
+    clear: both;
+    overflow: auto;
+    box-sizing: border-box;
+
+    &#selling-points {
+      flex-grow: 2;
+      flex-basis: 100%;
+    }
+  }
+  code {
+    background: color(bg1);
+    border: $border-style;
+    color: color(secondary);
+    page-break-inside: avoid;
+    font-family: $font;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+
+    &.before {
+      float: left;
+      width: 40%;
+    }
+
+    &.after {
+      float: right;
+      width: 40%;
+    }
+  }
+}
+h1,
+h2,
+h3 {
+  color: color(h);
+}
+
+h1,
+h3 {
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.5em;
+  padding: $padding * 2;
+  margin-bottom: 0px;
+}
+
+.messeges {
+  padding: $padding;
+}
+
+.success {
+  @extend .success;
+  background: color(success);
+}
+.error {
+  @extend .error;
+  background: color(error);
+  &:hover {
+    background: color(success);
+  }
+}
+.warning {
+  @extend .warning;
+  background: color(warning);
+}
+
+footer {
+  h3 {
+    padding: $padding * 4;
+  }
+}
+
+$base-color: color(secondary);
+
+@for $i from 1 to 15 {
+  section:nth-child(1n + #{$i}) {
+    background-color: lighten($base-color, $i * 7%);
+  }
+}

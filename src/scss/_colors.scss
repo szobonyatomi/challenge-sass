@@ -1,0 +1,14 @@
+$colors: (
+  primary: #6b717f,
+  secondary: lighten(#6b717f, 10%),
+  h: #bf4080,
+  bg1: #0a0a0a,
+  bg2: #fafafa,
+  success: #17bf17,
+  error: #f00,
+  warning: orange,
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
